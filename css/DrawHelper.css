@@ -1,0 +1,26 @@
+ 
+/* filepath: d:\DevOps\Training\app2\3DGSPLATEST\css\DrawHelper.css */
+/* # DrawHelper styles */
+.draw-helper {
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.draw-helper button {
+    margin: 5px;
+}
+
+.draw-helper .active {
+    background-color: #007bff;
+    color: white;
+}
+
+.draw-helper .disabled {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+}

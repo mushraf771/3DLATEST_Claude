@@ -1,0 +1,25 @@
+ 
+{
+  "terrain": {
+    "layers": [
+      {
+        "id": "layer1",
+        "name": "Base Layer",
+        "type": "raster",
+        "url": "http://example.com/tiles/{z}/{x}/{y}.png",
+        "minZoom": 0,
+        "maxZoom": 5,
+        "opacity": 1.0
+      },
+      {
+        "id": "layer2",
+        "name": "Overlay Layer",
+        "type": "vector",
+        "url": "http://example.com/overlays/{z}/{x}/{y}.json",
+        "minZoom": 1,
+        "maxZoom": 10,
+        "opacity": 0.7
+      }
+    ]
+  }
+}

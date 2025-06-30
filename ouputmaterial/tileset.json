@@ -1,0 +1,26 @@
+ 
+{
+  "asset": {
+    "version": "1.0",
+    "tiles": [
+      {
+        "id": "0",
+        "boundingVolume": {
+          "region": [
+            -180.0,
+            -90.0,
+            180.0,
+            90.0,
+            0.0
+          ]
+        },
+        "geometricError": 500,
+        "refine": "REPLACE",
+        "content": {
+          "uri": "content/0.b3dm"
+        },
+        "children": []
+      }
+    ]
+  }
+}

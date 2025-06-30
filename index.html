@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Globe Application</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>    <script src="js/Cesium.js"></script>
+    <script src="js/code.js"></script>
+    
+<script src="https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Cesium.js"></script>
+<link href="https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+</head>
+<body>
+    <div id="cesiumContainer" style="width: 100%; height: 100vh;"></div>
+    <div id="toolbar" style="position: absolute; top: 10px; left: 10px; z-index: 10;">
+        <button id="flyToHome" class="btn btn-primary">Home View</button>
+        <button id="addModel" class="btn btn-secondary">Add 3D Model</button>
+    </div>
+    
+    <script>
+        // Your Cesium initialization code will be in code.js
+    </script>
+    <script src="js/code.js"></script>
+
+
+<!-- ...existing code... -->
+    <div id="toolbar" style="position: absolute; top: 10px; left: 10px; z-index: 10;">
+        <button id="flyToHome" class="btn btn-primary">Home View</button>
+        <button id="addModel" class="btn btn-secondary">Add 3D Model</button>
+        <button id="checkDb" class="btn btn-success">Check Database</button>
+        <span id="dbStatus" style="margin-left:10px;"></span>
+    </div>
+    <script>
+        // Remove this comment if present: // Your Cesium initialization code will be in code.js
+
+        // Database check functionality
+        document.getElementById('checkDb').onclick = function() {
+            fetch('http://localhost:5000/db-check')
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === "ok") {
+                        document.getElementById('dbStatus').innerText = "Database Connected!";
+                        document.getElementById('dbStatus').style.color = "green";
+                    } else {
+                        document.getElementById('dbStatus').innerText = "Database Error: " + (data.message || "");
+                        document.getElementById('dbStatus').style.color = "red";
+                    }
+                })
+                .catch(err => {
+                    document.getElementById('dbStatus').innerText = "API Error";
+                    document.getElementById('dbStatus').style.color = "red";
+                });
+        };
+    </script>
+
+
+    <body>
+    <div id="cesiumContainer" style="width: 100%; height: 100vh;"></div>
+    <div id="toolbar" style="position: absolute; top: 10px; left: 10px; z-index: 10;">
+        <button id="flyToHome" class="btn btn-primary">Home View</button>
+        <button id="addModel" class="btn btn-secondary">Add 3D Model</button>
+        <button id="checkDb" class="btn btn-success">Check Database</button>
+        <button id="getItems" class="btn btn-info">Get Items</button>
+        <button id="addItem" class="btn btn-warning">Add Item</button>
+        <button id="updateItem" class="btn btn-dark">Update Item</button>
+        <button id="deleteItem" class="btn btn-danger">Delete Item</button>
+        <span id="dbStatus" style="margin-left:10px;"></span>
+    </div>
+    <div id="crudResult" style="position:absolute; top:60px; left:10px; background:#fff; padding:10px; z-index:10;"></div>
+    <script>
+        // Database check
+        document.getElementById('checkDb').onclick = function() {
+            fetch('http://localhost:5000/db-check')
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === "ok") {
+                        document.getElementById('dbStatus').innerText = "Database Connected!";
+                        document.getElementById('dbStatus').style.color = "green";
+                    } else {
+                        document.getElementById('dbStatus').innerText = "Database Error: " + (data.message || "");
+                        document.getElementById('dbStatus').style.color = "red";
+                    }
+                })
+                .catch(() => {
+                    document.getElementById('dbStatus').innerText = "API Error";
+                    document.getElementById('dbStatus').style.color = "red";
+                });
+        };
+
+        // CRUD operations (example)
+        document.getElementById('getItems').onclick = function() {
+            fetch('http://localhost:5000/items')
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('crudResult').innerText = JSON.stringify(data);
+                });
+        };
+        document.getElementById('addItem').onclick = function() {
+            fetch('http://localhost:5000/items', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({name: 'New Item'})
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('crudResult').innerText = 'Added: ' + JSON.stringify(data);
+            });
+        };
+        document.getElementById('updateItem').onclick = function() {
+            fetch('http://localhost:5000/items/1', {
+                method: 'PUT',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({name: 'Updated Item'})
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('crudResult').innerText = 'Updated: ' + JSON.stringify(data);
+            });
+        };
+        document.getElementById('deleteItem').onclick = function() {
+            fetch('http://localhost:5000/items/1', {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('crudResult').innerText = 'Deleted: ' + JSON.stringify(data);
+            });
+        };
+    </script>
+</body>
+</html>

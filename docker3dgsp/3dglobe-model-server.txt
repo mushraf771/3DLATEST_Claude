@@ -1,0 +1,21 @@
+ 
+# 3D Globe Model Server Configuration
+
+This file contains configuration details for the 3D Globe Model Server.
+
+## Purpose
+The 3D Globe Model Server is responsible for serving 3D models and tiles to the client application. It interacts with the terrain server and database to provide dynamic content.
+
+## Configuration
+- **Base URL**: The base URL for accessing the model server should be configured in the client application.
+- **Endpoints**:
+  - `/models`: Endpoint to retrieve available 3D models.
+  - `/tiles`: Endpoint to serve 3D tiles based on zoom levels and coordinates.
+
+## Dependencies
+Ensure that the following services are running:
+- Terrain Server
+- Database
+
+## Usage
+To start the model server, use the following command:

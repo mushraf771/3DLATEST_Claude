@@ -1,0 +1,35 @@
+ 
+{
+  "name": "3dterrainserver",
+  "version": "1.0.0",
+  "description": "Terrain server for 3D Globe Application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "cors": "^2.8.5",
+    "body-parser": "^1.19.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/3DGSPLATEST.git"
+  },
+  "keywords": [
+    "3D",
+    "terrain",
+    "server",
+    "globe"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/3DGSPLATEST/issues"
+  },
+  "homepage": "https://github.com/yourusername/3DGSPLATEST#readme"
+}

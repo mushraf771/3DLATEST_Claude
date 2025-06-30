@@ -1,0 +1,59 @@
+ 
+{
+  "asset": {
+    "version": "1.0",
+    "tiles": [
+      {
+        "boundingVolume": {
+          "region": [
+            -74.0,
+            40.0,
+            -73.0,
+            41.0,
+            0,
+            1000
+          ]
+        },
+        "geometricError": 500,
+        "refine": "REPLACE",
+        "content": {
+          "uri": "content/tileset.json"
+        },
+        "children": [
+          {
+            "boundingVolume": {
+              "region": [
+                -74.0,
+                40.0,
+                -73.5,
+                40.5,
+                0,
+                500
+              ]
+            },
+            "geometricError": 250,
+            "content": {
+              "uri": "content/child1/tileset.json"
+            }
+          },
+          {
+            "boundingVolume": {
+              "region": [
+                -73.5,
+                40.0,
+                -73.0,
+                40.5,
+                0,
+                500
+              ]
+            },
+            "geometricError": 250,
+            "content": {
+              "uri": "content/child2/tileset.json"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

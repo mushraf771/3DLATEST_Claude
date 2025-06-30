@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  terrain-server:
+    build: ./3dterrainserver
+    ports:
+      - "8000:8000"  # Terrain tiles access
+    volumes:
+      - ./3dterrainserver/terrain:/usr/src/app/terrain
+    restart: unless-stopped
+
+  db:
+    build: ./db
+    ports:
+      - "5432:5432"  # PostgreSQL access
+    environment:
+      POSTGRES_DB: 3dgsplates
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  flask-app:
+    build: ./js/flask
+    ports:
+      - "5000:5000"  # Flask API access
+    environment:
+      DATABASE_URL: postgresql://postgres:root@db:5432/3dgsplates
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  web:
+    build: .
+    ports:
+      - "8080:80"  # Web frontend access
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - terrain-server
+      - flask-app
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

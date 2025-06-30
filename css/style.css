@@ -1,0 +1,40 @@
+ 
+/* General styles for the 3D Globe Application */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#cesiumContainer {
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+}
+
+#toolbar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000; /* Ensure toolbar is above other elements */
+}
+
+.btn {
+    margin: 5px;
+}
+
+/* Additional styles for buttons */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    #toolbar {
+        flex-direction: column;
+    }
+}

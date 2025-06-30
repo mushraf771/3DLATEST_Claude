@@ -1,0 +1,40 @@
+ 
+{
+  "asset": {
+    "version": "1.0",
+    "geometricError": 100,
+    "root": {
+      "boundingVolume": {
+        "region": [
+          -74.0,
+          40.0,
+          -73.0,
+          41.0,
+          0,
+          1000
+        ]
+      },
+      "geometricError": 50,
+      "refine": "REPLACE",
+      "children": [
+        {
+          "boundingVolume": {
+            "box": [
+              0,
+              0,
+              0,
+              100,
+              100,
+              100
+            ]
+          },
+          "geometricError": 25,
+          "content": {
+            "uri": "tiles/0/0/0.b3dm"
+          },
+          "children": []
+        }
+      ]
+    }
+  }
+}

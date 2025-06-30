@@ -1,0 +1,26 @@
+ 
+This file contains information about the 3D Globe application and its components.
+
+1. **Overview**:
+   The 3D Globe application is designed to visualize terrain data and other geographical information in a 3D environment. It utilizes various technologies including Cesium for rendering, Flask for the backend API, and PostgreSQL for data storage.
+
+2. **Components**:
+   - **Terrain Server**: Handles requests for terrain data and serves it to the frontend.
+   - **Database**: Stores terrain data and other relevant information.
+   - **Flask Application**: Provides an API for the frontend to interact with the database and terrain server.
+   - **Frontend**: The user interface built with HTML, CSS, and JavaScript, utilizing Cesium for 3D visualization.
+
+3. **Setup Instructions**:
+   - Ensure Docker and Docker Compose are installed on your machine.
+   - Clone the repository and navigate to the project directory.
+   - Run `docker-compose up --build` to build and start all services.
+   - Access the application at `http://localhost:8080`.
+
+4. **Testing**:
+   - The application includes a CI/CD pipeline defined in `.github/workflows/test.yml` for automated testing and deployment.
+
+5. **Contributing**:
+   - Contributions are welcome! Please submit a pull request or open an issue for discussion.
+
+6. **License**:
+   - This project is licensed under the MIT License. See the LICENSE file for more details.

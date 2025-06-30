@@ -1,0 +1,18 @@
+ 
+# 3D Globe Terrain Server Configuration
+
+This file contains configuration details for the 3D Globe Terrain Server.
+
+## Overview
+
+The 3D Globe Terrain Server is responsible for serving terrain data to the 3D Globe application. It utilizes a PostgreSQL database to store and retrieve terrain information.
+
+## Requirements
+
+- Node.js (version 18 or higher)
+- PostgreSQL (version 15 or higher)
+- Docker and Docker Compose
+
+## Setup Instructions
+
+1. **Clone the Repository**

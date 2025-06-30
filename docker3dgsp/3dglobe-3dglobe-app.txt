@@ -1,0 +1,28 @@
+ 
+This file contains information about the 3D Globe application, including its architecture, components, and deployment instructions.
+
+Architecture:
+- The application is built using a microservices architecture, consisting of a terrain server, a database, a Flask API, and a web frontend.
+
+Components:
+1. Terrain Server:
+   - Built using Node.js and serves terrain data.
+   - Exposes port 8000 for accessing terrain tiles.
+
+2. Database:
+   - PostgreSQL is used as the database.
+   - Initializes with the provided init.sql script.
+   - Exposes port 5432 for database access.
+
+3. Flask API:
+   - Built using Flask and serves as the backend for the web application.
+   - Exposes port 5000 for API access.
+
+4. Web Frontend:
+   - Built using HTML, CSS, and JavaScript.
+   - Exposes port 8080 for accessing the web application.
+
+Deployment Instructions:
+1. Ensure Docker and Docker Compose are installed on your machine.
+2. Clone the repository and navigate to the project directory.
+3. Build and start the application using Docker Compose:

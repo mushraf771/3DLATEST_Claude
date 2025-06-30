@@ -1,0 +1,28 @@
+FROM postgres:15-alpine
+
+# Environment variables for initialization
+ENV POSTGRES_DB=3dgsplates
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=root
+
+# Copy initialization scripts
+COPY init.sql /docker-entrypoint-initdb.d/
+
+EXPOSE 5432
+
+FROM php:8.2-apache
+
+WORKDIR /var/www/html
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    libzip-dev \
+    zip \
+    && docker-php-ext-install zip pdo pdo_mysql
+
+# Enable Apache modules
+RUN a2enmod rewrite
+
+COPY . .
+
+EXPOSE 80
